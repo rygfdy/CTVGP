@@ -1,0 +1,45 @@
+{
+  "mode": "full",
+  "main": {
+    "cases": ["linear", "log", "sigmoid"],
+    "data_seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+    "restarts": [0, 1, 2],
+    "m_constraints": 5,
+    "family": "rank2",
+    "map": "softplus"
+  },
+  "capacity": {
+    "cases": ["log", "sigmoid"],
+    "data_seeds": [0, 1, 2, 3, 4],
+    "restarts": [0, 1, 2],
+    "m_constraints": [5, 10, 20],
+    "families": ["diag", "rank2", "rank4", "full"],
+    "map": "softplus"
+  },
+  "map": {
+    "cases": ["log", "sigmoid"],
+    "data_seeds": [0, 1, 2, 3, 4],
+    "restarts": [0, 1, 2],
+    "m_constraints": [5, 20],
+    "family": "rank2",
+    "maps": ["softplus", "exp", "squareplus"]
+  },
+  "optimizer": {
+    "max_steps": 8000,
+    "batch_size": 512,
+    "check_every": 200,
+    "validation_samples": 8192,
+    "polish_samples": 8192,
+    "polish_maxiter": 500,
+    "polish_maxfun": 650
+  },
+  "evaluation": {
+    "elbo_samples": 100000,
+    "reference_samples": 30000,
+    "candidate_samples": 30000,
+    "ghk_samples": 32768,
+    "ghk_replicates": 8,
+    "tv_samples_per_component": 20000,
+    "sliced_projections": 256
+  }
+}
